@@ -51,6 +51,7 @@ class StronglyConnectedComponentsFinder<T> implements Consumer<Node<T>> {
                 strongConnect(successor);
                 setRoot(node, Root.of(successor));
             } else if (stack.contains(successor)) {
+                // FIXME: contains is O(N)
                 // -> it's in the current SCC
                 setRoot(node, Index.of(successor));
             }
